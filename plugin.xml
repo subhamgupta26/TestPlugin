@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.test.plugin" version="0.0.1">
+   <name>TestPlugin</name>
+   <js-module name="TestPlugin" src="www/TestPlugin.js">
+      <clobbers target="cordova.plugins.TestPlugin" />
+   </js-module>
+   <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="TestPlugin">
+            <param name="android-package" value="com.test.plugin.TestPlugin" />
+         </feature>
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml">
+         <uses-permission android:name="android.permission.INTERNET" />
+         <uses-permission android:name="android.permission.BLUETOOTH" />
+         <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+         <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      </config-file>
+      <source-file src="src/android/TestPlugin.java" target-dir="src/com/test/plugin/TestPlugin" />
+   </platform>
+</plugin>
